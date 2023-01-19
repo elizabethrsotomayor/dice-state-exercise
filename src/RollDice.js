@@ -7,8 +7,9 @@ class RollDice extends Component {
     super(props);
 
     this.state = {
-      num1: 1,
-      num2: 1,
+      num1: 0,
+      num2: 0,
+      isRolling: false,
     };
 
     this.roll = this.roll.bind(this);
@@ -27,10 +28,12 @@ class RollDice extends Component {
   render() {
     return (
       <div>
-        <div className="RollDice-Dice">
+        <div className="RollDice-dice">
           <Die num={this.state.num1} /> <Die num={this.state.num2} />
         </div>
-        <button onClick={this.roll}>Roll Dice</button>
+        <button className="RollDice-button" onClick={this.roll}>
+          Roll Dice!
+        </button>
       </div>
     );
   }

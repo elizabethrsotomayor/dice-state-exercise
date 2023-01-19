@@ -1,6 +1,21 @@
-.RollDice-Dice {
-  display: block;
-  margin-top: 2rem;
+.RollDice-dice {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  margin-top: 20%;
   margin-bottom: 2rem;
   text-align: center;
+}
+
+.RollDice-button {
+  background-color: black;
+  color: white;
+  padding: 1.2rem 5rem;
+  border-radius: 15px;
+  margin-top: 4.2rem;
+  border: none;
+}
+
+.RollDice-button:hover {
+  background-color: #7048e8;
 }
