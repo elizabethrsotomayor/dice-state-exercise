@@ -15,24 +15,35 @@ class RollDice extends Component {
     this.roll = this.roll.bind(this);
   }
 
-  roll() {
+  roll(e) {
+    // console.log(e.target.id);
+
     let nums = RollDice.defaultProps.nums;
 
     let randNum1 = nums[Math.floor(Math.random() * nums.length)];
 
     let randNum2 = nums[Math.floor(Math.random() * nums.length)];
 
-    this.setState({ num1: randNum1, num2: randNum2 });
+    this.setState({ num1: randNum1, num2: randNum2, isRolling: true });
+
+    setTimeout(() => {
+      this.setState({ isRolling: false });
+    }, 1000);
   }
 
   render() {
     return (
       <div>
         <div className="RollDice-dice">
-          <Die num={this.state.num1} /> <Die num={this.state.num2} />
+          <Die num={this.state.num1} isRolling={this.state.isRolling} />
+          <Die num={this.state.num2} isRolling={this.state.isRolling} />
         </div>
-        <button className="RollDice-button" onClick={this.roll}>
-          Roll Dice!
+        <button
+          className="RollDice-button"
+          id="RollDice-btn"
+          onClick={this.roll}
+        >
+          {this.state.isRolling ? "Rolling..." : "Roll Dice!"}
         </button>
       </div>
     );

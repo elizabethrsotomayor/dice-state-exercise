@@ -21,8 +21,15 @@ class Die extends Component {
       faDiceSix,
     ]; // array of dice icon objects
     let curDie = this.props.num;
+    console.log(this.props.isRolling);
 
-    return <FontAwesomeIcon icon={dice[curDie]} className="Die" />;
+    return (
+      <FontAwesomeIcon
+        icon={dice[curDie]}
+        className="Die"
+        id={this.props.isRolling ? "Die-animate" : ""}
+      />
+    );
   }
 }
 
