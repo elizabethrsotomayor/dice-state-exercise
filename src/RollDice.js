@@ -3,6 +3,10 @@ import Die from "./Die";
 import "./RollDice.css";
 
 class RollDice extends Component {
+  static defaultProps = {
+    nums: [0, 1, 2, 3, 4, 5],
+  };
+
   constructor(props) {
     super(props);
 
@@ -15,9 +19,7 @@ class RollDice extends Component {
     this.roll = this.roll.bind(this);
   }
 
-  roll(e) {
-    // console.log(e.target.id);
-
+  roll() {
     let nums = RollDice.defaultProps.nums;
 
     let randNum1 = nums[Math.floor(Math.random() * nums.length)];
@@ -42,6 +44,7 @@ class RollDice extends Component {
           className="RollDice-button"
           id="RollDice-btn"
           onClick={this.roll}
+          disabled={this.state.isRolling}
         >
           {this.state.isRolling ? "Rolling..." : "Roll Dice!"}
         </button>
@@ -49,9 +52,5 @@ class RollDice extends Component {
     );
   }
 }
-
-RollDice.defaultProps = {
-  nums: [0, 1, 2, 3, 4, 5],
-};
 
 export default RollDice;
